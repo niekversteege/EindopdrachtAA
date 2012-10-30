@@ -1,13 +1,14 @@
 package nl.niek.minor.aa.eindopdracht;
 
-public class Main {
+public class AnagramMain {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		AnagramFinder finder =  new AnagramFinder();
+		finder.printAllAnagrams();
 	}
 
 }
