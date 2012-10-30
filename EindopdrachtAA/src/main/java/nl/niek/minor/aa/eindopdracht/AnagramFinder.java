@@ -6,13 +6,34 @@ import java.util.List;
 
 public class AnagramFinder
 {
-	private String					fileName;
+	private File					file;
 	private List<AnagramCollection>	anagramCollections;
 
+	/**
+	 * Create an AnagramFinder and immediately parse the given file for
+	 * anagrams.
+	 * 
+	 * @param file
+	 */
+	public AnagramFinder(File file)
+	{
+		this();
+
+		this.file = file;
+
+		parseAnagrams();
+	}
+
+	/**
+	 * Default constructor.
+	 */
 	public AnagramFinder()
 	{
 		anagramCollections = new ArrayList<AnagramCollection>();
+	}
 
+	public List<AnagramCollection> parseAnagrams()
+	{
 		// optional: parse the entire file into words?
 		// check file size
 		// find a word
@@ -21,11 +42,8 @@ public class AnagramFinder
 		// find another word
 		// TODO: possible recursive method, keep pointing it to a new place to
 		// start
-	}
-	
-	public AnagramFinder(File file)
-	{
 		
+		return anagramCollections;
 	}
 
 	public void printAllAnagrams()
@@ -43,6 +61,11 @@ public class AnagramFinder
 		{
 			println("No anagrams found.");
 		}
+	}
+
+	public void setFile(final File file)
+	{
+		this.file = file;
 	}
 
 	public static void print(String string)
