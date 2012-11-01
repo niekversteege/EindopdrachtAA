@@ -2,7 +2,7 @@ package nl.niek.minor.aa.eindopdracht;
 
 import java.util.List;
 
-public class AnagramPrinter
+public class AnagramUtil
 {
 	public static void printAllAnagrams(List<AnagramCollection> anagrams)
 	{

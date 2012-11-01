@@ -31,15 +31,13 @@ public class AnagramFinder
 		anagramCollections = new HashMap<String, AnagramCollection>();
 	}
 
+	/**
+	 * Get the list of anagrams found in the text given at construction.
+	 * 
+	 * @return
+	 */
 	public List<AnagramCollection> findAnagrams()
 	{
-		// for every word in the text
-		// - put word letters in alphabetical order (makes a key)
-		// if key is in map
-		// - add the found word to the list at the key
-		// else
-		// - add key and add the word to the list of anagrams of that key
-
 		String currentWord = anagramText.getNextWord();
 
 		while (currentWord != null)
@@ -63,6 +61,11 @@ public class AnagramFinder
 		return makeList();
 	}
 
+	/**
+	 * Remove any AnagramCollections that have no anagrams.
+	 * 
+	 * @return
+	 */
 	private ArrayList<AnagramCollection> makeList()
 	{
 		ArrayList<AnagramCollection> collectionValues = new ArrayList<AnagramCollection>(
