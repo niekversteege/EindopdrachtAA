@@ -7,8 +7,7 @@ public class AnagramMain {
 	 */
 	public static void main(String[] args) {
 		
-		AnagramFinder finder =  new AnagramFinder();
-		finder.printAllAnagrams();
+		
 	}
 
 }

@@ -1,25 +1,26 @@
 package nl.niek.minor.aa.eindopdracht;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AnagramFinder
 {
-	private File					file;
-	private List<AnagramCollection>	anagramCollections;
+	public AnagramText						anagramText;
+	public Map<String, AnagramCollection>	anagramCollections;
 
 	/**
-	 * Create an AnagramFinder and immediately parse the given file for
+	 * Create an AnagramFinder and immediately parse the given String for
 	 * anagrams.
 	 * 
-	 * @param file
+	 * @param string
 	 */
-	public AnagramFinder(File file)
+	public AnagramFinder(String string)
 	{
 		this();
 
-		this.file = file;
+		anagramText = new AnagramText(string);
 
 		parseAnagrams();
 	}
@@ -27,54 +28,20 @@ public class AnagramFinder
 	/**
 	 * Default constructor.
 	 */
-	public AnagramFinder()
+	private AnagramFinder()
 	{
-		anagramCollections = new ArrayList<AnagramCollection>();
+		anagramCollections = new HashMap<String, AnagramCollection>();
 	}
 
 	public List<AnagramCollection> parseAnagrams()
 	{
-		// optional: parse the entire file into words?
-		// check file size
-		// find a word
-		// check the entire text for anagrams of that word
-		// remove all occurrences of the word and it's anagrams
-		// find another word
-		// TODO: possible recursive method, keep pointing it to a new place to
-		// start
-		
-		return anagramCollections;
-	}
+		// for every word in the text
+		// - put word letters in alphabetical order (makes a key)
+		// if key is in map
+		// - add the found word to the list at the key
+		// else
+		// - add key and add the word to the list of anagrams of that key
 
-	public void printAllAnagrams()
-	{
-		if (anagramCollections.size() > 0)
-		{
-			println("Anagrams found: ");
-
-			for (AnagramCollection a : anagramCollections)
-			{
-				println(a.toString());
-			}
-		}
-		else
-		{
-			println("No anagrams found.");
-		}
-	}
-
-	public void setFile(final File file)
-	{
-		this.file = file;
-	}
-
-	public static void print(String string)
-	{
-		System.out.print(string);
-	}
-
-	public static void println(String string)
-	{
-		System.out.println(string);
+		return new ArrayList<AnagramCollection>(anagramCollections.values());
 	}
 }
