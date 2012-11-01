@@ -6,12 +6,17 @@ public class AnagramUtil
 {
 	public static void printAllAnagrams(List<AnagramCollection> anagrams)
 	{
-		if (anagrams.size() > 0)
+		if (anagrams != null && anagrams.size() > 0)
 		{
+			println("Anagrams found: ");
 			for (AnagramCollection a : anagrams)
 			{
 				println(a.toString());
 			}
+		}
+		else
+		{
+			println("No anagrams found.");
 		}
 	}
 
@@ -23,5 +28,15 @@ public class AnagramUtil
 	public static void println(String string)
 	{
 		System.out.println(string);
+	}
+
+	/**
+	 * Get a default text for demonstration/testing purposes.
+	 * 
+	 * @return
+	 */
+	public static String getDefaultText()
+	{
+		return "banaan, appel. nanaab bannaa nabaan=- soep";
 	}
 }

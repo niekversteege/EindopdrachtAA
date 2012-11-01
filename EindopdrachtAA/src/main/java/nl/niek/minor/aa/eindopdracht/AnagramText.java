@@ -6,7 +6,7 @@ public class AnagramText
 {
 	private static final int	STRING_SIZE_LIMIT	= 200;
 
-	private static final String	WORD_DELIMITERS		= ",.;:!? ";
+	private static final String	WORD_DELIMITERS		= ",.;:!?=-()* ";
 
 	private StringTokenizer		tokenizer;
 
@@ -50,7 +50,7 @@ public class AnagramText
 		if (string.length() > STRING_SIZE_LIMIT)
 		{
 			throw new IllegalArgumentException(
-					"String is too large. Keep under " + STRING_SIZE_LIMIT);
+					"String is too large. Keep under " + STRING_SIZE_LIMIT + " letters.");
 		}
 	}
 }

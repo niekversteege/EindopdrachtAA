@@ -61,6 +61,6 @@ public class AnagramCollection
 	@Override
 	public String toString()
 	{
-		return "Word: " + firstWord + " Anagrams: " + anagrams.toString();
+		return "Anagrams for '" + firstWord + "': " + anagrams.toString() + ".";
 	}
 }
