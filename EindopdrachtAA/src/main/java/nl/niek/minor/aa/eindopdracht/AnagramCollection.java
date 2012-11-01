@@ -20,27 +20,55 @@ public class AnagramCollection
 		anagrams = new ArrayList<String>();
 	}
 
+	/**
+	 * Add a new anagram. Ignores duplicates.
+	 * 
+	 * @param anagram
+	 */
 	public void addAnagram(final String anagram)
 	{
-		anagrams.add(anagram.toLowerCase());
+		if (!anagrams.contains(anagram))
+		{
+			anagrams.add(anagram.toLowerCase());
+		}
 	}
-	
-	public final List<String> getAnagrams()
+
+	/**
+	 * Get the whole list. Only intented for equals method.
+	 * 
+	 * @return
+	 */
+	protected final List<String> getAnagrams()
 	{
 		return anagrams;
 	}
-	
+
+	/**
+	 * Get the number of anagrams in the list.
+	 * 
+	 * @return
+	 */
+	public final int size()
+	{
+		return anagrams.size();
+	}
+
 	@Override
 	public boolean equals(Object obj)
 	{
 		AnagramCollection collection = null;
-		
+
 		if (obj instanceof AnagramCollection)
 		{
 			collection = (AnagramCollection) obj;
-			
+
+			if (this.size() != collection.size())
+			{
+				return false;
+			}
+
 			List<String> objAnagrams = collection.getAnagrams();
-			
+
 			for (String s : objAnagrams)
 			{
 				if (!this.anagrams.contains(s))
@@ -48,10 +76,10 @@ public class AnagramCollection
 					return false;
 				}
 			}
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 

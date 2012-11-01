@@ -40,6 +40,24 @@ public class AnagramCollectionTest
 	}
 	
 	@Test
+	public void testAddDuplicateString()
+	{
+		AnagramCollection duplicateCollection = new AnagramCollection("banaan");
+		duplicateCollection.addAnagram("nabaan");
+		duplicateCollection.addAnagram("nanaab");
+		duplicateCollection.addAnagram("aaannb");
+		duplicateCollection.addAnagram("aaannb");
+		duplicateCollection.addAnagram("aaannb");
+		
+		AnagramCollection expected = new AnagramCollection("banaan");
+		expected.addAnagram("nanaab");
+		expected.addAnagram("aaannb");
+		expected.addAnagram("nabaan");
+		
+		Assert.assertTrue(duplicateCollection.equals(expected));
+	}
+	
+	@Test
 	public void testNumberOfSTrings()
 	{
 		AnagramCollection expected = new AnagramCollection("banaan");
