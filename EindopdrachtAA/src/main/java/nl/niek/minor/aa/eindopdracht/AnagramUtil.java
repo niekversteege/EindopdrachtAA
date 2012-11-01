@@ -37,6 +37,6 @@ public class AnagramUtil
 	 */
 	public static String getDefaultText()
 	{
-		return "banaan, appel. nanaab bannaa nabaan=- soep";
+		return "banaan, appel, nanaab, bannaa, nabaan, passievrucht, tomatensoep, tomaat, peer, erep, tomaat, tomaat, tamaot, vruchtpassie.";
 	}
 }
