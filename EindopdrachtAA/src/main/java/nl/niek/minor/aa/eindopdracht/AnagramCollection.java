@@ -33,14 +33,9 @@ public class AnagramCollection
 		}
 	}
 
-	/**
-	 * Get the whole list. Only intented for equals method.
-	 * 
-	 * @return
-	 */
-	protected final List<String> getAnagrams()
+	public boolean contains(final String anagram)
 	{
-		return anagrams;
+		return anagrams.contains(anagram);
 	}
 
 	/**
@@ -53,34 +48,14 @@ public class AnagramCollection
 		return anagrams.size();
 	}
 
-	@Override
-	public boolean equals(Object obj)
+	/**
+	 * Get the word that this object is storing anagrams for.
+	 * 
+	 * @return
+	 */
+	public final String getFirstWord()
 	{
-		AnagramCollection collection = null;
-
-		if (obj instanceof AnagramCollection)
-		{
-			collection = (AnagramCollection) obj;
-
-			if (this.size() != collection.size())
-			{
-				return false;
-			}
-
-			List<String> objAnagrams = collection.getAnagrams();
-
-			for (String s : objAnagrams)
-			{
-				if (!this.anagrams.contains(s))
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
-
-		return false;
+		return firstWord;
 	}
 
 	@Override

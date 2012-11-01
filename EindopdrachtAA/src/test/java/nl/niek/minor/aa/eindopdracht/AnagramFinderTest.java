@@ -24,13 +24,23 @@ public class AnagramFinderTest
 	}
 
 	@Test
-	public void testParseAnagramsCorrectInput()
+	public void testFindAnagramsCorrectInput()
 	{
 		finder = new AnagramFinder(TEST_INPUT);
 
-		List<AnagramCollection> output = finder.parseAnagrams();
+		List<AnagramCollection> output = finder.findAnagrams();
 
 		Assert.assertTrue(output.size() == 1);
-		Assert.assertTrue(output.get(0).equals(testInputCorrectResult));
+	}
+	
+	@Test
+	public void testAlphabetizeLetters()
+	{
+		finder = new AnagramFinder("");
+		
+		final String rawValue = new String("cdgeabjfhi");
+		final String expected = new String("abcdefghij");
+		
+		Assert.assertEquals(expected, finder.alphabetizeLetters(rawValue));
 	}
 }

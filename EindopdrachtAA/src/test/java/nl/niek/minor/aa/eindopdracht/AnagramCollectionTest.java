@@ -6,65 +6,48 @@ import org.junit.Test;
 
 public class AnagramCollectionTest
 {
+	private static final String	BANAAN	= "banaan";
+	private static final String	NANAAB	= "nanaab";
+	private static final String	NABAAN	= "nabaan";
+	private static final String	AAANNB	= "aaannb";
+	
 	private AnagramCollection collection;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		collection = new AnagramCollection("banaan");
-		collection.addAnagram("nabaan");
-		collection.addAnagram("nanaab");
-		collection.addAnagram("aaannb");
-	}
-
-	@Test
-	public void testEqualsObject()
-	{
-		AnagramCollection expected = new AnagramCollection("banaan");
-		expected.addAnagram("nanaab");
-		expected.addAnagram("aaannb");
-		expected.addAnagram("nabaan");
-		
-		Assert.assertTrue(collection.equals(expected));
+		collection = new AnagramCollection(BANAAN);
+		collection.addAnagram(NABAAN);
+		collection.addAnagram(NANAAB);
+		collection.addAnagram(AAANNB);
 	}
 	
 	@Test
-	public void testUnknownString()
+	public void testConstruction()
 	{
-		AnagramCollection expected = new AnagramCollection("banaan");
-		expected.addAnagram("nanaab");
-		expected.addAnagram("bbbnnn");
-		expected.addAnagram("nabaan");
-		
-		Assert.assertFalse(collection.equals(expected));
+		Assert.assertTrue(collection.size() == 3);
+		Assert.assertEquals(BANAAN, collection.getFirstWord());
+		Assert.assertTrue(collection.contains(NABAAN));
+		Assert.assertTrue(collection.contains(NANAAB));
+		Assert.assertTrue(collection.contains(AAANNB));
 	}
 	
 	@Test
 	public void testAddDuplicateString()
 	{
-		AnagramCollection duplicateCollection = new AnagramCollection("banaan");
-		duplicateCollection.addAnagram("nabaan");
-		duplicateCollection.addAnagram("nanaab");
-		duplicateCollection.addAnagram("aaannb");
-		duplicateCollection.addAnagram("aaannb");
-		duplicateCollection.addAnagram("aaannb");
+		AnagramCollection duplicateCollection = new AnagramCollection(BANAAN);
+		duplicateCollection.addAnagram(NABAAN);
+		duplicateCollection.addAnagram(NANAAB);
+		duplicateCollection.addAnagram(AAANNB);
+		duplicateCollection.addAnagram(AAANNB);
+		duplicateCollection.addAnagram(AAANNB);
 		
-		AnagramCollection expected = new AnagramCollection("banaan");
-		expected.addAnagram("nanaab");
-		expected.addAnagram("aaannb");
-		expected.addAnagram("nabaan");
+		AnagramCollection expected = new AnagramCollection(BANAAN);
+		expected.addAnagram(NANAAB);
+		expected.addAnagram(AAANNB);
+		expected.addAnagram(NABAAN);
 		
-		Assert.assertTrue(duplicateCollection.equals(expected));
+		Assert.assertTrue(duplicateCollection.size() == 3);
+		Assert.assertTrue(duplicateCollection.contains(AAANNB));
 	}
-	
-	@Test
-	public void testNumberOfSTrings()
-	{
-		AnagramCollection expected = new AnagramCollection("banaan");
-		expected.addAnagram("nanaab");
-		expected.addAnagram("bbbnnn");
-		
-		Assert.assertFalse(collection.equals(expected));
-	}
-
 }
