@@ -21,6 +21,8 @@ public class AnagramFinder
 		this();
 
 		anagramText = new AnagramText(string);
+		
+		AnagramUtil.println("Finding anagrams in: " + string);
 	}
 
 	/**
